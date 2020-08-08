@@ -1,9 +1,9 @@
 <?php
 
-namespace SuperBlog\Persistence;
+namespace App\Persistence;
 
-use SuperBlog\Model\Article;
-use SuperBlog\Model\ArticleRepository;
+use App\Entities\Article;
+use App\Repositories\ArticleRepository;
 
 class InMemoryArticleRepository implements ArticleRepository
 {

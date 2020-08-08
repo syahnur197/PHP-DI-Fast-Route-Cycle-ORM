@@ -1,9 +1,9 @@
 <?php
 
-use SuperBlog\Model\ArticleRepository;
+use App\Repositories\ArticleRepository;
 use Symfony\Component\Console\Output\OutputInterface;
 
-$container = require __DIR__ . '/app/bootstrap.php';
+$container = require __DIR__ . '/bootstrap/app.php';
 
 $app = new Silly\Application();
 
@@ -30,6 +30,6 @@ $app->command('articles', function (OutputInterface $output, ArticleRepository $
 // Show an article
 // For this command we provide an invokable class instead of a closure
 // That allows to use dependency injection in the constructor
-$app->command('article [id]', 'SuperBlog\Command\ArticleDetailCommand');
+$app->command('article [id]', 'App\Command\ArticleDetailCommand');
 
 $app->run();

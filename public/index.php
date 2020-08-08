@@ -2,11 +2,11 @@
 
 use FastRoute\RouteCollector;
 
-$container = require __DIR__ . '/../app/bootstrap.php';
+$container = require __DIR__ . '/../bootstrap/app.php';
 
 $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
-    $r->addRoute('GET', '/', 'SuperBlog\Controller\HomeController');
-    $r->addRoute('GET', '/article/{id}', ['SuperBlog\Controller\ArticleController', 'show']);
+    $r->addRoute('GET', '/', 'App\Controllers\HomeController');
+    $r->addRoute('GET', '/article/{id}', ['App\Controllers\ArticleController', 'show']);
 });
 
 $route = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);

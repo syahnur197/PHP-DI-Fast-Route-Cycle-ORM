@@ -1,25 +1,25 @@
 <?php
 
-namespace SuperBlog\Controller;
+namespace App\Controllers;
 
-use SuperBlog\Model\ArticleRepository;
-use Twig_Environment;
+use App\Services\Interfaces\ArticleService;
+use Twig\Environment;
 
 class HomeController
 {
     /**
      * @var ArticleRepository
      */
-    private $repository;
+    private $service;
 
     /**
      * @var Twig_Environment
      */
     private $twig;
 
-    public function __construct(ArticleRepository $repository, Twig_Environment $twig)
+    public function __construct(ArticleService $service, Environment $twig)
     {
-        $this->repository = $repository;
+        $this->service = $service;
         $this->twig = $twig;
     }
 
@@ -31,7 +31,7 @@ class HomeController
     public function __invoke()
     {
         echo $this->twig->render('home.twig', [
-            'articles' => $this->repository->getArticles(),
+            'articles' => $this->service->getArticles(),
         ]);
     }
 }

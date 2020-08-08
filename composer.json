@@ -4,7 +4,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "SuperBlog\\": "src/SuperBlog/"
+            "App\\": "app/"
         }
     },
     "require": {
@@ -12,6 +12,7 @@
         "php-di/php-di": "^6.0",
         "nikic/fast-route": "~0.5.0",
         "twig/twig": "^1.18",
-        "mnapoli/silly": "^1.7"
+        "mnapoli/silly": "^1.7",
+        "cycle/bootstrap": "^0.4.0"
     }
 }

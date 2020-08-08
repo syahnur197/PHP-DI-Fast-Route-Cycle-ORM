@@ -1,12 +1,23 @@
 <?php
 
-namespace SuperBlog\Model;
+namespace App\Entities;
+use Cycle\Annotated\Annotation\Entity;
+use Cycle\Annotated\Annotation\Column;
 
+/** 
+ * @Entity(repository="\App\Repositories\ArticleRepository")
+ * 
+ * */
 class Article
 {
-    private $id;
-    private $title;
-    private $content;
+    /** @Column(type = "primary") */
+    protected $id;
+
+    /** @Column(type = "string") */
+    protected $title;
+
+    /** @Column(type = "text") */
+    protected $content;
 
     public function __construct($id, $title, $content)
     {
