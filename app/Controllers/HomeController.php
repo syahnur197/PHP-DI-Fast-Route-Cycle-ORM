@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Services\Interfaces\ArticleService;
+use App\Services\ArticleService;
 use Twig\Environment;
 
 class HomeController

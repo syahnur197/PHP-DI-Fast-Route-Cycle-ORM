@@ -2,28 +2,25 @@
 
 namespace App\Controllers;
 
-use App\Repositories\ArticleRepository;
+use App\Services\ArticleService;
 use Twig\Environment;
 
 class ArticleController
 {
-    /**
-     * @var ArticleRepository
-     */
-    private $repository;
+    private $articleService;
 
 
     private $twig;
 
-    public function __construct(ArticleRepository $repository, Environment $twig)
+    public function __construct(ArticleService $articleService, Environment $twig)
     {
-        $this->repository = $repository;
+        $this->articleService = $articleService;
         $this->twig = $twig;
     }
 
     public function show($id)
     {
-        $article = $this->repository->getArticle($id);
+        $article = $this->articleService->getArticle($id);
 
         echo $this->twig->render('article.twig', [
             'article' => $article,
